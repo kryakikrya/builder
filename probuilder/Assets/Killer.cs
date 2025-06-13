@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Killer : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene(1);
         }
