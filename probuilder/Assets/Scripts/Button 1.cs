@@ -14,7 +14,7 @@ public class Button1 : MonoBehaviour
         {
             if (other.CompareTag("Player") || other.CompareTag("Activation"))
             {
-                obj.SetActive(!obj.active);
+                obj.SetActive(activator);
                 isActive = true;
             }
         }
@@ -25,6 +25,10 @@ public class Button1 : MonoBehaviour
         if (other.CompareTag("Player") || other.CompareTag("Activation"))
         {
             isActive = true;
+            if (obj.active == !activator)
+            {
+                obj.SetActive(activator);
+            }
         }
     }
     private void OnTriggerExit(Collider other)
@@ -33,7 +37,7 @@ public class Button1 : MonoBehaviour
         {
             if (other.CompareTag("Player") || other.CompareTag("Activation"))
             {
-                obj.SetActive(!obj.active);
+                obj.SetActive(!activator);
                 isActive = false;
             }
         }
